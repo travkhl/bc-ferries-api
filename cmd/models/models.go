@@ -15,14 +15,15 @@ type CapacityRoute struct {
 }
 
 type CapacitySailing struct {
-	DepartureTime string `json:"time"`
-	ArrivalTime   string `json:"arrivalTime"`
-	SailingStatus string `json:"sailingStatus"`
-	Fill          int    `json:"fill"`
-	CarFill       int    `json:"carFill"`
-	OversizeFill  int    `json:"oversizeFill"`
-	VesselName    string `json:"vesselName"`
-	VesselStatus  string `json:"vesselStatus"`
+	DepartureTime          string `json:"time"`
+	ScheduledDepartureTime string `json:"scheduledDepartureTime"`
+	ArrivalTime            string `json:"arrivalTime"`
+	SailingStatus          string `json:"sailingStatus"`
+	Fill                   int    `json:"fill"`
+	CarFill                int    `json:"carFill"`
+	OversizeFill           int    `json:"oversizeFill"`
+	VesselName             string `json:"vesselName"`
+	VesselStatus           string `json:"vesselStatus"`
 }
 
 type NonCapacityResponse struct {
@@ -54,12 +55,13 @@ type Route struct {
 }
 
 type Sailing struct {
-	DepartureTime string `json:"time"`
-	ArrivalTime   string `json:"arrivalTime"`
-	IsCancelled   bool   `json:"isCancelled"`
-	Fill          int    `json:"fill"`
-	CarFill       int    `json:"carFill"`
-	OversizeFill  int    `json:"oversizeFill"`
-	VesselName    string `json:"vesselName"`
-	VesselStatus  string `json:"vesselStatus"`
+	DepartureTime          string `json:"time"`
+	ScheduledDepartureTime string `json:"scheduledDepartureTime"`
+	ArrivalTime            string `json:"arrivalTime"`
+	IsCancelled            bool   `json:"isCancelled"`
+	Fill                   int    `json:"fill"`
+	CarFill                int    `json:"carFill"`
+	OversizeFill           int    `json:"oversizeFill"`
+	VesselName             string `json:"vesselName"`
+	VesselStatus           string `json:"vesselStatus"`
 }

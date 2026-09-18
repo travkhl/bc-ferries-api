@@ -145,6 +145,7 @@ func ScrapeCapacityRoute(document *goquery.Document, fromTerminalCode string, to
 							matches := re.FindStringSubmatch(strings.Join(strings.Fields(timeString), " "))
 							if len(matches) >= 3 {
 								sailing.DepartureTime = matches[1]
+								sailing.ScheduledDepartureTime = matches[1]
 								sailing.VesselName = matches[2]
 							}
 						} else if l == 1 {
@@ -174,10 +175,12 @@ func ScrapeCapacityRoute(document *goquery.Document, fromTerminalCode string, to
 								fmt.Println("No matches found, regex error")
 							} else {
 								// Extracting named groups
+								scheduledDepartureTime := matches[1]
 								actualDepartureTime := matches[2]
 								vesselName := matches[3]
 
 								sailing.DepartureTime = actualDepartureTime
+								sailing.ScheduledDepartureTime = scheduledDepartureTime
 								sailing.VesselName = vesselName
 							}
 						} else if l == 1 {
@@ -212,10 +215,12 @@ func ScrapeCapacityRoute(document *goquery.Document, fromTerminalCode string, to
 								fmt.Println("No matches found, regex error")
 							} else {
 								// Extracting named groups
+								scheduledDepartureTime := matches[1]
 								actualDepartureTime := matches[2]
 								vesselName := matches[3]
 
 								sailing.DepartureTime = actualDepartureTime
+								sailing.ScheduledDepartureTime = scheduledDepartureTime
 								sailing.VesselName = vesselName
 							}
 						} else if l == 1 {
@@ -255,6 +260,7 @@ func ScrapeCapacityRoute(document *goquery.Document, fromTerminalCode string, to
 								vesselName := matches[2]
 
 								sailing.DepartureTime = time
+								sailing.ScheduledDepartureTime = time
 								sailing.VesselName = vesselName
 							}
 						} else if l == 1 {

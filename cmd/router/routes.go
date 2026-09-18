@@ -283,14 +283,15 @@ func ConvertV1ResponseToV2Response(allData AllDataResponse) map[string]map[strin
                 for _, capSailing := range capRoute.Sailings {
                     if capSailing.SailingStatus == "future" || capSailing.SailingStatus == "cancelled" {
                         route.Sailings = append(route.Sailings, models.Sailing{
-                            DepartureTime: capSailing.DepartureTime,
-                            ArrivalTime:   capSailing.ArrivalTime,
-                            IsCancelled:   capSailing.SailingStatus == "cancelled",
-                            Fill:          capSailing.Fill,
-                            CarFill:       capSailing.CarFill,
-                            OversizeFill:  capSailing.OversizeFill,
-                            VesselName:    capSailing.VesselName,
-                            VesselStatus:  capSailing.VesselStatus,
+							DepartureTime:          capSailing.DepartureTime,
+							ScheduledDepartureTime: capSailing.ScheduledDepartureTime,
+							ArrivalTime:            capSailing.ArrivalTime,
+							IsCancelled:            capSailing.SailingStatus == "cancelled",
+							Fill:                   capSailing.Fill,
+							CarFill:                capSailing.CarFill,
+							OversizeFill:           capSailing.OversizeFill,
+							VesselName:             capSailing.VesselName,
+							VesselStatus:           capSailing.VesselStatus,
                         })
                     }
                 }
