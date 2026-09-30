@@ -13,14 +13,12 @@ services:
             - db_data:/var/lib/postgresql/data
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
         healthcheck:
-            test:
-                [
-                    "CMD-SHELL",
-                    "pg_isready -U ${DB_USER} -d ${DB_NAME} -h localhost",
-                ]
+            test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME} -h localhost" ]
             interval: 10s
             timeout: 5s
             retries: 5
+        networks:
+            - default
 
     api:
         build: .
@@ -36,6 +34,12 @@ services:
             - DB_HOST=${DB_HOST}
             - DB_PORT=${DB_PORT}
             - DB_SSL=${DB_SSL}
+        networks:
+            - ferry-network
 
 volumes:
     db_data:
+
+networks:
+    ferry-network:
+        external: true
