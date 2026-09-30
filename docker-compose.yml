@@ -35,6 +35,7 @@ services:
             - DB_PORT=${DB_PORT}
             - DB_SSL=${DB_SSL}
         networks:
+            - default
             - ferry-network
 
 volumes:
